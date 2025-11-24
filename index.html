@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>银行选择器</title>
+    <title>銀行選擇器 - 一鍵開啟</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -15,15 +15,57 @@
             padding: 10px 20px;
             font-size: 16px;
             cursor: pointer;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            background-color: #f0f0f0;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #e0e0e0;
+        }
+        /* 一鍵全開按鈕的樣式，設為藍色以示區別 */
+        .open-all-btn {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            font-weight: bold;
+            padding: 15px 30px;
+            display: block;
+            margin: 20px auto;
+        }
+        .open-all-btn:hover {
+            background-color: #0056b3;
         }
     </style>
+    <script>
+        function openAllLinks() {
+            // 定義所有要開啟的銀行網址
+            const urls = [
+                'http://www1.ccb.com/cn/v3/include/notice/zxgg_1.html', // 建設銀行
+                'https://www.boc.cn/custserv/bi2/',                     // 中國銀行
+                'https://www.psbc.com/cn/gyyc/zygg/',                   // 郵政銀行
+                'https://www.bankcomm.com/BankCommSite/shtml/jyjr/cn/7158/7825/list_1.shtml?channelId=7158', // 交通銀行
+                'https://time.is/zh/'                                   // TIME.IS
+            ];
+
+            // 遍歷網址並開啟
+            urls.forEach(url => {
+                window.open(url, '_blank');
+            });
+        }
+    </script>
 </head>
 <body>
-    <h1>选择要开启的连接</h1>
-    <button onclick="window.open('http://www1.ccb.com/cn/v3/include/notice/zxgg_1.html')">建设银行</button>
-    <button onclick="window.open('https://www.boc.cn/custserv/bi2/')">中国银行</button>
-    <button onclick="window.open('https://www.psbc.com/cn/gyyc/zygg/')">邮政银行</button>
-    <button onclick="window.open('https://www.bankcomm.com/BankCommSite/shtml/jyjr/cn/7158/7825/list_1.shtml?channelId=7158')">交通银行</button>
-    <button onclick="window.open(' https://time.is/zh/')">TIME.IS</button>
+    <h1>選擇要開啟的連接</h1>
+
+    <button class="open-all-btn" onclick="openAllLinks()">🏦 一鍵開啟全部銀行公告</button>
+    
+    <hr style="width: 50%; margin: 20px auto;">
+
+    <button onclick="window.open('http://www1.ccb.com/cn/v3/include/notice/zxgg_1.html')">建設銀行</button>
+    <button onclick="window.open('https://www.boc.cn/custserv/bi2/')">中國銀行</button>
+    <button onclick="window.open('https://www.psbc.com/cn/gyyc/zygg/')">郵政銀行</button>
+    <button onclick="window.open('https://www.bankcomm.com/BankCommSite/shtml/jyjr/cn/7158/7825/list_1.shtml?channelId=7158')">交通銀行</button>
+    <button onclick="window.open('https://time.is/zh/')">TIME.IS</button>
 </body>
 </html>
